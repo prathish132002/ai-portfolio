@@ -12,12 +12,16 @@ const links = [
 export default function Navbar() {
   const pathname = usePathname();
   const { mode, toggleMode } = useMode();
+  const accentColor = mode === "student" ? "#10b981" : "#7c3aed";
+  const navBg = mode === "student" ? "rgba(240, 253, 244, 0.9)" : "rgba(245, 243, 255, 0.9)";
+  const navBorder = mode === "student" ? "rgba(16, 185, 129, 0.08)" : "rgba(124, 58, 237, 0.08)";
+
   return (
     <header style={{
       position: "sticky", top: 0, zIndex: 100,
-      backgroundColor: "rgba(245, 243, 255, 0.9)", // Lavender Mist Tint
+      backgroundColor: navBg,
       backdropFilter: "blur(20px)",
-      borderBottom: "1px solid rgba(124, 58, 237, 0.08)",
+      borderBottom: `1px solid ${navBorder}`,
     }}>
       <nav style={{
         maxWidth: "94%", margin: "0 auto", padding: "0 32px",
@@ -85,7 +89,9 @@ export default function Navbar() {
             marginLeft: 8, padding: "10px 24px",
             borderRadius: 10, fontSize: 14, fontWeight: 700,
             textDecoration: "none",
-          }} className="btn-primary btn-gradient">
+            background: mode === "student" ? "linear-gradient(135deg, #10b981 0%, #059669 100%)" : undefined,
+            color: "white"
+          }} className={mode === "student" ? "" : "btn-primary btn-gradient"}>
             Hire Me
           </a>
         </div>
