@@ -5,6 +5,9 @@ import Link from "next/link";
 import { GitHubIcon, LinkedInIcon, EmailIcon, InstagramIcon } from "@/components/Icons";
 import { useMode } from "@/context/ModeContext";
 import { GitHubCalendar } from 'react-github-calendar';
+import HeroMascot from "@/components/HeroMascot";
+import Reveal from "@/components/Reveal";
+import HolographicWrapper from "@/components/HolographicWrapper";
 
 // --- FREELANCE DATA ---
 const projects = [
@@ -24,6 +27,13 @@ const projects = [
     tags: ["React", "TypeScript", "AI APIs"],
     manifest: "// Deployment Readiness: ATS-Optimized",
     liveUrl: "https://ats-resume-creator.vercel.app",
+  },
+  {
+    slug: "viralquotes-ai",
+    title: "ViralQuotes AI",
+    subtitle: "YouTube Intelligence for Creators",
+    description: "A professional-grade command center for YouTube creators. Integrates Gemini AI for content synthesis and YouTube Data API for real-time engagement tracking.",
+    tags: ["React 19", "Gemini Pro", "Supabase", "YouTube API"],
   },
   {
     slug: "estateflow",
@@ -147,11 +157,11 @@ const socialLinks = [
 export default function Home() {
   const { mode } = useMode();
 
-  if (mode === "student") {
-    return <StudentHome />;
-  }
-
-  return <FreelanceHome />;
+  return (
+    <>
+      {mode === "student" ? <StudentHome /> : <FreelanceHome />}
+    </>
+  );
 }
 
 // ============================================
@@ -217,13 +227,12 @@ function StudentHome() {
             </div>
           </div>
           
-          {/* Avatar / Sphere */}
+          {/* Mascot Hero Animation (Student/Recruiter Theme) */}
           <div style={{ flex: "1 1 300px", display: "flex", justifyContent: "center", alignItems: "center", position: "relative" }}>
-           <img 
-              src="/iridescent_lavender_sphere_1775640300016.png" 
-              alt="Design Element" 
-              className="floating-element" 
-              style={{ maxWidth: "100%", width: 380, height: 380, objectFit: "cover", zIndex: 1, borderRadius: "50%", filter: "hue-rotate(-50deg)" }} 
+            <HeroMascot 
+              imageSrc="/skeleton_waving.png" 
+              message="Trust me, I'm a good boy... down to the bone! 💀" 
+              accentColor="#10b981" 
             />
           </div>
         </div>
@@ -258,48 +267,93 @@ function StudentHome() {
 
         <div className="bento-grid">
            {/* Card 1 */}
-           <div className="bento-large" style={{ border: "1px solid rgba(0,0,0,0.08)", borderRadius: 11, padding: "26px", backgroundColor: "white" }}>
-              <h3 style={{ fontSize: 26, fontWeight: 700, color: "#1a1b2e", marginBottom: 6 }}>AI Interview Simulator App</h3>
-              <p style={{ fontSize: 15, color: "#059669", marginBottom: 16, fontWeight: 700, textTransform: "uppercase" }}>React | Firebase | GenAI APIs | TypeScript</p>
-              <ul style={{ fontSize: 16, color: "#4b5563", lineHeight: 1.6, paddingLeft: 20 }}>
-                <li>Developed an intelligent interview practice platform that generates dynamic questions & evaluates responses.</li>
-                <li>Built frontend using React + TypeScript for highly scalable, type-safe components.</li>
-                <li>Integrated AI APIs for role-based reasoning, scoring, caching responses, and detailed analytics.</li>
-                <li><strong>Secured user performance data and session states utilizing a scalable Firebase backend database.</strong></li>
-              </ul>
-           </div>
+             <Link href="/projects/speakeasy-ai" className="bento-large" style={{ textDecoration: "none" }}>
+              <HolographicWrapper accentColor="#10b981">
+                <div style={{ border: "1px solid rgba(0,0,0,0.08)", borderRadius: 11, padding: "26px", backgroundColor: "white", height: "100%" }}>
+                  <h3 style={{ fontSize: 26, fontWeight: 700, color: "#1a1b2e", marginBottom: 6 }}>AI Interview Simulator App</h3>
+                  <p style={{ fontSize: 15, color: "#059669", marginBottom: 16, fontWeight: 700, textTransform: "uppercase" }}>React | Firebase | GenAI APIs | TypeScript</p>
+                  <ul style={{ fontSize: 16, color: "#4b5563", lineHeight: 1.6, paddingLeft: 20 }}>
+                    <li>Developed an intelligent interview practice platform that generates dynamic questions & evaluates responses.</li>
+                    <li>Built frontend using React + TypeScript for highly scalable, type-safe components.</li>
+                    <li>Integrated AI APIs for role-based reasoning, scoring, caching responses, and detailed analytics.</li>
+                    <li><strong>Secured user performance data and session states utilizing a scalable Firebase backend database.</strong></li>
+                  </ul>
+                </div>
+              </HolographicWrapper>
+             </Link>
            
-           {/* Card 2 */}
-           <div className="bento-standard" style={{ border: "1px solid rgba(0,0,0,0.08)", borderRadius: 11, padding: "26px", backgroundColor: "white" }}>
-              <h3 style={{ fontSize: 22, fontWeight: 700, color: "#1a1b2e", marginBottom: 6 }}>AI Resume Builder</h3>
-              <p style={{ fontSize: 13, color: "#059669", marginBottom: 16, fontWeight: 700, textTransform: "uppercase" }}>React | JavaScript | PostgreSQL</p>
-              <ul style={{ fontSize: 15, color: "#4b5563", lineHeight: 1.6, paddingLeft: 20 }}>
-                <li>Developed a web app that generates ATS-compliant resumes using AI prompt engineering.</li>
-                <li><strong>Integrated a structured relational database (PostgreSQL) to store generated templates and user configurations securely.</strong></li>
-                <li>Built features dynamically adjusting content based on specific job roles.</li>
-              </ul>
-           </div>
+             {/* Card 2: ViralQuotes AI (Large) */}
+             <Link href="/projects/viralquotes-ai" className="bento-large" style={{ textDecoration: "none" }}>
+              <HolographicWrapper accentColor="#10b981">
+                <div style={{ border: "1px solid rgba(0,0,0,0.08)", borderRadius: 11, padding: "26px", backgroundColor: "white", height: "100%" }}>
+                  <h3 style={{ fontSize: 26, fontWeight: 700, color: "#1a1b2e", marginBottom: 6 }}>ViralQuotes AI</h3>
+                  <p style={{ fontSize: 15, color: "#059669", marginBottom: 16, fontWeight: 700, textTransform: "uppercase" }}>React 19 | Gemini | Supabase | YouTube API</p>
+                  <ul style={{ fontSize: 16, color: "#4b5563", lineHeight: 1.6, paddingLeft: 20 }}>
+                    <li>Professional-grade YouTube command center for AI-powered content generation and competitor tracking.</li>
+                    <li>Integrated <strong>Google Gemini Pro</strong> for generating scripts, hooks, and optimized titles.</li>
+                    <li>Connected <strong>YouTube Data API</strong> for real-time channel engagement analytics and AI insights.</li>
+                    <li>Built with a premium glassmorphic UI and secure Supabase backend persistence.</li>
+                  </ul>
+                </div>
+              </HolographicWrapper>
+             </Link>
+            
+            {/* Card 3 */}
+             <Link href="/projects/resumeforge-ai" className="bento-standard" style={{ textDecoration: "none" }}>
+              <HolographicWrapper accentColor="#10b981">
+                <div style={{ border: "1px solid rgba(0,0,0,0.08)", borderRadius: 11, padding: "26px", backgroundColor: "white", height: "100%" }}>
+                  <h3 style={{ fontSize: 22, fontWeight: 700, color: "#1a1b2e", marginBottom: 6 }}>AI Resume Builder</h3>
+                  <p style={{ fontSize: 13, color: "#059669", marginBottom: 16, fontWeight: 700, textTransform: "uppercase" }}>React | JavaScript | PostgreSQL</p>
+                  <ul style={{ fontSize: 15, color: "#4b5563", lineHeight: 1.6, paddingLeft: 20 }}>
+                    <li>Developed a web app that generates ATS-compliant resumes using AI prompt engineering.</li>
+                    <li><strong>Integrated a structured relational database (PostgreSQL) to store generated templates and user configurations securely.</strong></li>
+                    <li>Built features dynamically adjusting content based on specific job roles.</li>
+                  </ul>
+                </div>
+              </HolographicWrapper>
+             </Link>
 
-           {/* Card 3 */}
-           <div className="bento-standard" style={{ border: "1px solid rgba(0,0,0,0.08)", borderRadius: 11, padding: "26px", backgroundColor: "white" }}>
-              <h3 style={{ fontSize: 22, fontWeight: 700, color: "#1a1b2e", marginBottom: 6 }}>Workflow Automation</h3>
-              <p style={{ fontSize: 13, color: "#059669", marginBottom: 16, fontWeight: 700, textTransform: "uppercase" }}>n8n | Workflow APIs</p>
-              <ul style={{ fontSize: 15, color: "#4b5563", lineHeight: 1.6, paddingLeft: 20 }}>
-                <li>Built automated workflows connecting multiple distinct APIs and services autonomously using n8n.</li>
-                <li>Created pipelines to handle event notifications, structured data processing, and integrations.</li>
-              </ul>
-           </div>
-           
-           {/* Card 4 */}
-           <div className="bento-standard" style={{ border: "1px solid rgba(0,0,0,0.08)", borderRadius: 11, padding: "26px", backgroundColor: "white" }}>
-              <h3 style={{ fontSize: 22, fontWeight: 700, color: "#1a1b2e", marginBottom: 6 }}>SmartBlind Stick / Mobile Robot</h3>
-              <p style={{ fontSize: 13, color: "#059669", marginBottom: 16, fontWeight: 700, textTransform: "uppercase" }}>IoT | Arduino | MQTT</p>
-              <ul style={{ fontSize: 15, color: "#4b5563", lineHeight: 1.6, paddingLeft: 20 }}>
-                <li>Created an assistive IoT device helping visually impaired detect obstacles via ultrasonic sensors.</li>
-                <li>Built a low-latency smartphone-controlled robot using MQTT communication loops.</li>
-              </ul>
-           </div>
-        </div>
+            {/* Card 4 */}
+             <Link href="/projects/adgenius-ai" className="bento-standard" style={{ textDecoration: "none" }}>
+              <HolographicWrapper accentColor="#10b981">
+                <div style={{ border: "1px solid rgba(0,0,0,0.08)", borderRadius: 11, padding: "26px", backgroundColor: "white", height: "100%" }}>
+                  <h3 style={{ fontSize: 22, fontWeight: 700, color: "#1a1b2e", marginBottom: 6 }}>Workflow Automation</h3>
+                  <p style={{ fontSize: 13, color: "#059669", marginBottom: 16, fontWeight: 700, textTransform: "uppercase" }}>n8n | Workflow APIs</p>
+                  <ul style={{ fontSize: 15, color: "#4b5563", lineHeight: 1.6, paddingLeft: 20 }}>
+                    <li>Built automated workflows connecting multiple distinct APIs and services autonomously using n8n.</li>
+                    <li>Created pipelines to handle event notifications, structured data processing, and integrations.</li>
+                  </ul>
+                </div>
+              </HolographicWrapper>
+             </Link>
+                      {/* Card 5 */}
+             <Link href="/projects/smart-blind-stick" className="bento-standard" style={{ textDecoration: "none" }}>
+              <HolographicWrapper accentColor="#10b981">
+                <div style={{ border: "1px solid rgba(0,0,0,0.08)", borderRadius: 11, padding: "26px", backgroundColor: "white", height: "100%" }}>
+                  <h3 style={{ fontSize: 22, fontWeight: 700, color: "#1a1b2e", marginBottom: 6 }}>SmartBlind Stick</h3>
+                  <p style={{ fontSize: 13, color: "#059669", marginBottom: 16, fontWeight: 700, textTransform: "uppercase" }}>IoT | Arduino | Ultrasonic</p>
+                  <ul style={{ fontSize: 15, color: "#4b5563", lineHeight: 1.6, paddingLeft: 20 }}>
+                    <li>Created an assistive IoT device helping visually impaired detect obstacles via ultrasonic sensors.</li>
+                    <li>Designed an auditory feedback loop for safe distance calculation.</li>
+                  </ul>
+                </div>
+              </HolographicWrapper>
+             </Link>
+             
+             {/* Card 5 */}
+             <Link href="/projects/mobile-controlled-robot" className="bento-standard" style={{ textDecoration: "none" }}>
+              <HolographicWrapper accentColor="#10b981">
+                <div style={{ border: "1px solid rgba(0,0,0,0.08)", borderRadius: 11, padding: "26px", backgroundColor: "white", height: "100%" }}>
+                  <h3 style={{ fontSize: 22, fontWeight: 700, color: "#1a1b2e", marginBottom: 6 }}>Mobile Controlled Robot</h3>
+                  <p style={{ fontSize: 13, color: "#059669", marginBottom: 16, fontWeight: 700, textTransform: "uppercase" }}>Arduino | Bluetooth | Robotics</p>
+                  <ul style={{ fontSize: 15, color: "#4b5563", lineHeight: 1.6, paddingLeft: 20 }}>
+                    <li>Built a low-latency smartphone-controlled robot using Bluetooth communication loops.</li>
+                    <li>Implemented PWM speed control and L298N motor driver coordination.</li>
+                  </ul>
+                </div>
+              </HolographicWrapper>
+             </Link>
+          </div>
       </section>
 
       <div style={{ height: 1, backgroundColor: "rgba(16, 185, 129, 0.08)", marginBottom: 72 }} />
@@ -446,17 +500,12 @@ function FreelanceHome() {
           </div>
         </div>
 
-        {/* Hero Image */}
+        {/* Mascot Hero Animation (Business Theme - User Sketch) */}
         <div style={{ flex: "1 1 300px", display: "flex", justifyContent: "center", alignItems: "center", position: "relative" }}>
-          <img 
-            src="/iridescent_lavender_sphere_1775640300016.png" 
-            alt="Lavender Iridescent Sphere" 
-            className="floating-element" 
-            style={{ 
-              maxWidth: "100%", width: 440, height: 440, 
-              objectFit: "cover", zIndex: 1, 
-              borderRadius: "50%" 
-            }} 
+          <HeroMascot 
+            imageSrc="/business_hero_sketch.png" 
+            message="Let's Build! 🚀" 
+            accentColor="#7c3aed" 
           />
         </div>
       </div>
@@ -502,42 +551,44 @@ function FreelanceHome() {
             
             return (
               <Link key={project.slug} href={`/projects/${project.slug}`} className={`block no-underline ${bentoClass}`}>
-                <div className="card-hover" style={{
-                  border: "1px solid rgba(0,0,0,0.08)",
-                  borderRadius: 11, padding: "26px", height: "100%", display: "flex", flexDirection: "column"
-                }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 6 }}>
-                    <h3 style={{ fontSize: 26, fontWeight: 700, color: "#1a1b2e", letterSpacing: "-0.02em" }}>
-                      {project.title}
-                    </h3>
-                    {project.liveUrl && (
-                      <span style={{
-                        fontSize: 10, fontWeight: 600, color: "#4ade80",
-                        backgroundColor: "rgba(74,222,128,0.08)", padding: "2px 8px",
-                        borderRadius: 4, border: "1px solid rgba(74,222,128,0.2)",
-                        flexShrink: 0, marginLeft: 10,
-                      }}>Live</span>
+                <HolographicWrapper accentColor="#7c3aed">
+                  <div className="card-hover" style={{
+                    border: "1px solid rgba(0,0,0,0.08)",
+                    borderRadius: 11, padding: "26px", height: "100%", display: "flex", flexDirection: "column"
+                  }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 6 }}>
+                      <h3 style={{ fontSize: 26, fontWeight: 700, color: "#1a1b2e", letterSpacing: "-0.02em" }}>
+                        {project.title}
+                      </h3>
+                      {project.liveUrl && (
+                        <span style={{
+                          fontSize: 10, fontWeight: 600, color: "#4ade80",
+                          backgroundColor: "rgba(74,222,128,0.08)", padding: "2px 8px",
+                          borderRadius: 4, border: "1px solid rgba(74,222,128,0.2)",
+                          flexShrink: 0, marginLeft: 10,
+                        }}>Live</span>
+                      )}
+                    </div>
+                    <p style={{ fontSize: 15, color: "#7c3aed", marginBottom: 16, fontWeight: 700, letterSpacing: "0.03em", textTransform: "uppercase" }}>{project.subtitle}</p>
+                    <p style={{ fontSize: 18, color: "#4b5563", lineHeight: 1.6, marginBottom: project.manifest ? 14 : "auto", flexGrow: 1, fontWeight: 500 }}>{project.description}</p>
+                    {project.manifest && (
+                      <p style={{ fontSize: 13, color: "#16a34a", fontFamily: "monospace", marginBottom: "auto", flexGrow: 1, paddingTop: 4, fontWeight: 600 }}>
+                        {project.manifest}
+                      </p>
                     )}
+                    <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 20 }}>
+                      {project.tags.map((tag) => (
+                        <span key={tag} style={{
+                          fontSize: 10, color: "#c084fc",
+                          backgroundColor: "rgba(167, 139, 250, 0.08)",
+                          border: "1px solid rgba(167, 139, 250, 0.2)",
+                          padding: "3px 10px", borderRadius: 100,
+                          fontWeight: 600
+                        }}>{tag}</span>
+                      ))}
+                    </div>
                   </div>
-                  <p style={{ fontSize: 15, color: "#7c3aed", marginBottom: 16, fontWeight: 700, letterSpacing: "0.03em", textTransform: "uppercase" }}>{project.subtitle}</p>
-                  <p style={{ fontSize: 18, color: "#4b5563", lineHeight: 1.6, marginBottom: project.manifest ? 14 : "auto", flexGrow: 1, fontWeight: 500 }}>{project.description}</p>
-                  {project.manifest && (
-                    <p style={{ fontSize: 13, color: "#16a34a", fontFamily: "monospace", marginBottom: "auto", flexGrow: 1, paddingTop: 4, fontWeight: 600 }}>
-                      {project.manifest}
-                    </p>
-                  )}
-                  <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 20 }}>
-                    {project.tags.map((tag) => (
-                      <span key={tag} style={{
-                        fontSize: 10, color: "#c084fc",
-                        backgroundColor: "rgba(167, 139, 250, 0.08)",
-                        border: "1px solid rgba(167, 139, 250, 0.2)",
-                        padding: "3px 10px", borderRadius: 100,
-                        fontWeight: 600
-                      }}>{tag}</span>
-                    ))}
-                  </div>
-                </div>
+                </HolographicWrapper>
               </Link>
             );
           })}

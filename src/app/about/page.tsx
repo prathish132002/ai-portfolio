@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowLeftIcon, GitHubIcon, LinkedInIcon, EmailIcon, InstagramIcon } from "@/components/Icons";
+import { useMode } from "@/context/ModeContext";
 
 const skillGroups = [
   { category: "[ MODULE_01: FRONTEND ]", items: ["React", "TypeScript", "Tailwind CSS"] },
@@ -16,8 +19,13 @@ const socialLinks = [
 ];
 
 export default function AboutPage() {
+  const { mode } = useMode();
+  const accentColor = mode === "student" ? "#10b981" : "#7c3aed";
+  const softBg = mode === "student" ? "rgba(16, 185, 129, 0.08)" : "rgba(124, 58, 237, 0.08)";
+  const softBorder = mode === "student" ? "rgba(16, 185, 129, 0.2)" : "rgba(124, 58, 237, 0.2)";
+
   return (
-    <div className="page-container">
+    <div className="page-container" style={{ animation: "fadeIn 0.5s ease" }}>
       <section style={{ padding: "56px 0 96px" }}>
 
         {/* Back */}
@@ -28,7 +36,7 @@ export default function AboutPage() {
 
         {/* Header */}
         <div style={{ marginBottom: 52 }}>
-          <p style={{ fontSize: 13, fontWeight: 700, color: "#7c3aed", marginBottom: 12, letterSpacing: "0.08em", textTransform: "uppercase" }}>About</p>
+          <p style={{ fontSize: 13, fontWeight: 700, color: accentColor, marginBottom: 12, letterSpacing: "0.08em", textTransform: "uppercase" }}>About</p>
           <h1 style={{ fontSize: "clamp(34px, 6vw, 48px)", fontWeight: 800, color: "#1a1b2e", letterSpacing: "-0.06em", marginBottom: 32 }}>Tyson</h1>
           <div style={{ display: "flex", flexDirection: "column", gap: 20, maxWidth: 880 }}>
             <p style={{ fontSize: 20, color: "#4b5563", lineHeight: 1.7, fontWeight: 500 }}>
@@ -57,11 +65,11 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div style={{ height: 1, backgroundColor: "rgba(255,255,255,0.06)", marginBottom: 48 }} />
+        <div style={{ height: 1, backgroundColor: "rgba(0,0,0,0.06)", marginBottom: 48 }} />
 
         {/* Capabilities */}
         <div style={{ marginBottom: 48 }}>
-          <h2 style={{ fontSize: 11, fontWeight: 700, color: "#7c3aed", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 28 }}>Capabilities</h2>
+          <h2 style={{ fontSize: 11, fontWeight: 700, color: accentColor, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 28 }}>Capabilities</h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20 }}>
             {skillGroups.map((group) => (
               <div key={group.category} style={{
@@ -69,17 +77,17 @@ export default function AboutPage() {
                 borderRadius: 12, padding: "26px",
               }} className="card-hover">
               <div style={{ 
-                fontSize: 13, fontWeight: 800, color: "#7c3aed", fontFamily: "monospace", 
+                fontSize: 13, fontWeight: 800, color: accentColor, fontFamily: "monospace", 
                 letterSpacing: "0.06em", marginBottom: 20, display: "inline-flex", alignItems: "center",
-                padding: "6px 12px", backgroundColor: "rgba(124, 58, 237, 0.1)", borderRadius: 8,
-                border: "1px solid rgba(124, 58, 237, 0.25)", textTransform: "uppercase"
+                padding: "6px 12px", backgroundColor: softBg, borderRadius: 8,
+                border: `1px solid ${softBorder}`, textTransform: "uppercase"
               }}>
                 {group.category}
               </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                   {group.items.map((item) => (
                     <span key={item} style={{ fontSize: 18, color: "#4b5563", fontWeight: 600, display: "flex", alignItems: "center", gap: 10 }}>
-                      <span style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: "#7c3aed", opacity: 0.4 }} />
+                      <span style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: accentColor, opacity: 0.4 }} />
                       {item}
                     </span>
                   ))}
@@ -93,7 +101,7 @@ export default function AboutPage() {
 
         {/* Education */}
         <div style={{ marginBottom: 48 }}>
-          <h2 style={{ fontSize: 11, fontWeight: 700, color: "#7c3aed", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 28 }}>Education</h2>
+          <h2 style={{ fontSize: 11, fontWeight: 700, color: accentColor, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 28 }}>Education</h2>
           <div style={{
             padding: "20px 24px", backgroundColor: "rgba(255, 255, 255, 0.4)",
             border: "1px solid rgba(0,0,0,0.08)", borderRadius: 10,
@@ -107,7 +115,7 @@ export default function AboutPage() {
               </div>
               <div style={{ textAlign: "right" }}>
                 <div style={{ fontSize: 12, color: "#71717a", marginBottom: 4 }}>2021 – 2025</div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#7c3aed" }}>CGPA: 7.20</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: accentColor }}>CGPA: 7.20</div>
               </div>
             </div>
           </div>
@@ -117,7 +125,7 @@ export default function AboutPage() {
 
         {/* Certifications */}
         <div style={{ marginBottom: 40 }}>
-          <h2 style={{ fontSize: 11, fontWeight: 700, color: "#7c3aed", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 28 }}>Certifications</h2>
+          <h2 style={{ fontSize: 11, fontWeight: 700, color: accentColor, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 28 }}>Certifications</h2>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {[
               { name: "Python, SQL, JavaScript, React.js, Node.js", issuer: "NXT Wave", year: null },
@@ -132,13 +140,13 @@ export default function AboutPage() {
                   <div style={{ fontSize: 14, fontWeight: 600, color: "#1a1b2e", marginBottom: 2 }}>{cert.name}</div>
                   <div style={{ fontSize: 12, color: "#71717a" }}>{cert.issuer}</div>
                 </div>
-                {cert.year && <span style={{ fontSize: 12, color: "#7c3aed", fontWeight: 700 }}>{cert.year}</span>}
+                {cert.year && <span style={{ fontSize: 12, color: accentColor, fontWeight: 700 }}>{cert.year}</span>}
               </div>
             ))}
           </div>
         </div>
 
-        <div style={{ height: 1, backgroundColor: "rgba(255,255,255,0.06)", marginBottom: 48 }} />
+        <div style={{ height: 1, backgroundColor: "rgba(0,0,0,0.06)", marginBottom: 48 }} />
 
         {/* Cricket / Beyond Code */}
         <div style={{ marginBottom: 48 }}>
@@ -218,7 +226,7 @@ export default function AboutPage() {
         </div>
 
         {/* Bottom back */}
-        <div style={{ paddingTop: 32, borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+        <div style={{ paddingTop: 32, borderTop: "1px solid rgba(0,0,0,0.08)" }}>
           <Link href="/" className="back-btn nav-link" style={{ fontSize: 13, color: "#52525b", display: "inline-flex", fontWeight: 500 }}>
             <ArrowLeftIcon size={15} />
             Back to Home

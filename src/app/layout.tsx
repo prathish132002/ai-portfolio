@@ -7,6 +7,9 @@ import { ModeProvider } from "@/context/ModeContext";
 export const metadata: Metadata = {
   title: "Tyson — GenAI Builder",
   description: "Building real-world AI applications that solve practical problems. Focused on creating systems that improve user interaction, automate workflows, and deliver meaningful feedback.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 const socialLinks = [
