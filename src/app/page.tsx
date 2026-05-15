@@ -171,9 +171,9 @@ function StudentHome() {
   return (
     <div className="page-container" style={{ animation: "fadeIn 0.5s ease" }}>
       {/* ── HERO ── */}
-      <section style={{ padding: "96px 0 80px" }}>
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: 32 }}>
-          <div style={{ maxWidth: 620, flex: "1 1 500px", zIndex: 10 }}>
+      <section className="p-mobile" style={{ padding: "96px 0 80px" }}>
+        <div className="reverse-stack-mobile" style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: 32 }}>
+          <div className="hero-text" style={{ maxWidth: 620, flex: "1 1 400px", zIndex: 10 }}>
             {/* Availability badge */}
             <div className="floating-element-delayed" style={{
               display: "inline-flex", alignItems: "center", gap: 8,
@@ -186,25 +186,25 @@ function StudentHome() {
               <span style={{ fontSize: 13, color: "#10b981", fontWeight: 700 }}>Seeking Opportunities</span>
             </div>
 
-            <h1 className="text-glow" style={{ fontSize: "clamp(44px, 5vw, 56px)", fontWeight: 800, color: "#1a1b2e", lineHeight: 1.05, letterSpacing: "-0.04em", marginBottom: 20 }}>
+            <h1 className="text-glow" style={{ fontSize: "clamp(26px, 8vw, 52px)", fontWeight: 800, color: "#1a1b2e", lineHeight: 1.1, letterSpacing: "-0.04em", marginBottom: 20 }}>
               Prathish Alampur
             </h1>
             <p style={{ fontSize: 13, fontWeight: 700, color: "#10b981", marginBottom: 16, letterSpacing: "0.08em", textTransform: "uppercase" }}>
               Full-Stack Developer | AI-Augmented Engineer
             </p>
-            <p style={{ fontSize: 16, color: "#4b5563", lineHeight: 1.7, marginBottom: 16, maxWidth: 580, fontWeight: 500 }}>
+            <p style={{ fontSize: "clamp(14px, 2vw, 16px)", color: "#4b5563", lineHeight: 1.7, marginBottom: 16, maxWidth: 580, fontWeight: 500 }}>
               Aspiring Full-Stack Developer with hands-on experience in React, Next.js, Python, and SQL. I don't just write code; I leverage modern AI workflows (Cursor, Prompting, n8n) to ship scalable features 10x faster.
             </p>
             <p style={{ fontSize: 14, color: "#71717a", lineHeight: 1.8, marginBottom: 44, maxWidth: 480 }}>
               Seeking an engineering role where I can bring end-to-end ownership, rapid prototyping, and a strong understanding of database architectures to the team.
             </p>
 
-            <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 44 }}>
+            <div className="btn-stack hero-buttons" style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 44 }}>
               <a href="mailto:alampurjprathish@gmail.com">
-                <button className="btn-primary" style={{
-                  padding: "16px 36px", fontSize: 16, fontWeight: 700, borderRadius: 12, border: "none", cursor: "pointer",
-                  background: "linear-gradient(135deg, #10b981 0%, #059669 100%)", color: "white"
-                }}>
+                <button className="btn-primary btn-p-mobile" style={{
+                    padding: "16px 36px", fontSize: 16, fontWeight: 700, borderRadius: 12, border: "none", cursor: "pointer",
+                    background: "linear-gradient(135deg, #10b981 0%, #059669 100%)", color: "white"
+                  }}>
                   Contact Me
                 </button>
               </a>
@@ -217,7 +217,7 @@ function StudentHome() {
               </a>
             </div>
             
-            <div style={{ display: "flex", gap: 20, alignItems: "center" }}>
+            <div className="hero-buttons" style={{ display: "flex", gap: 20, alignItems: "center" }}>
               {socialLinks.map(({ label, href, Icon }) => (
                 <a key={label} href={href} target="_blank" rel="noopener" className="social-pill" aria-label={label}>
                   <Icon size={17} />
@@ -227,8 +227,8 @@ function StudentHome() {
             </div>
           </div>
           
-          {/* Mascot Hero Animation (Student/Recruiter Theme) */}
-          <div style={{ flex: "1 1 300px", display: "flex", justifyContent: "center", alignItems: "center", position: "relative" }}>
+          {/* Mascot Hero Animation */}
+          <div style={{ flex: "1 1 300px", display: "flex", justifyContent: "center", alignItems: "center", position: "relative", width: "100%" }}>
             <HeroMascot 
               imageSrc="/skeleton_waving.png" 
               message="Trust me, I'm a good boy... down to the bone! 💀" 
@@ -378,7 +378,7 @@ function StudentHome() {
           </div>
 
           {/* Core Competencies Block */}
-          <div className="card-hover" style={{ background: "white", padding: 32, borderRadius: 16, border: "1px solid rgba(0,0,0,0.08)" }}>
+          <div className="card-hover card-p-mobile" style={{ background: "white", padding: 32, borderRadius: 16, border: "1px solid rgba(0,0,0,0.08)" }}>
              <h3 style={{ fontSize: 22, fontWeight: 700, color: "#1a1b2e", borderBottom: "2px solid #e5e7eb", paddingBottom: 16, marginBottom: 16 }}>Core Competencies</h3>
              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                <div>
@@ -397,7 +397,7 @@ function StudentHome() {
           </div>
 
           {/* Academics & Certifications Block */}
-          <div className="card-hover" style={{ background: "white", padding: 32, borderRadius: 16, border: "1px solid rgba(0,0,0,0.08)" }}>
+          <div className="card-hover card-p-mobile" style={{ background: "white", padding: 32, borderRadius: 16, border: "1px solid rgba(0,0,0,0.08)" }}>
              <h3 style={{ fontSize: 22, fontWeight: 700, color: "#1a1b2e", borderBottom: "2px solid #e5e7eb", paddingBottom: 16, marginBottom: 16 }}>Academics & Certifications</h3>
              <div style={{ marginBottom: 20 }}>
                <h4 style={{ fontSize: 16, fontWeight: 700, color: "#1a1b2e" }}>B.Tech - ECE (CGPA: 7.20)</h4>
@@ -432,9 +432,9 @@ function FreelanceHome() {
     <div className="page-container" style={{ animation: "fadeIn 0.5s ease" }}>
 
       {/* ── HERO ── */}
-      <section style={{ padding: "96px 0 80px" }}>
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: 32 }}>
-          <div style={{ maxWidth: 620, flex: "1 1 500px", zIndex: 10 }}>
+      <section className="p-mobile" style={{ padding: "96px 0 80px" }}>
+        <div className="reverse-stack-mobile" style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: 32 }}>
+          <div className="hero-text" style={{ maxWidth: 620, flex: "1 1 400px", zIndex: 10 }}>
             {/* Availability badge */}
             <div className="floating-element-delayed" style={{
               display: "inline-flex", alignItems: "center", gap: 8,
@@ -443,73 +443,57 @@ function FreelanceHome() {
               border: "1px solid rgba(124, 58, 237, 0.18)",
               backdropFilter: "blur(4px)"
             }}>
-              <span style={{ width: 7, height: 7, borderRadius: "50%", backgroundColor: "#4ade80", display: "inline-block", boxShadow: "0 0 6px #4ade80" }} />
-              <span style={{ fontSize: 13, color: "#a1a1aa", fontWeight: 500 }}>Systems Online</span>
+              <span style={{ width: 7, height: 7, borderRadius: "50%", backgroundColor: "#7c3aed", display: "inline-block", boxShadow: "0 0 6px #7c3aed" }} />
+              <span style={{ fontSize: 13, color: "#7c3aed", fontWeight: 700 }}>Available for Freelance</span>
             </div>
 
-            <h1 className="text-glow" style={{ fontSize: "clamp(44px, 5vw, 56px)", fontWeight: 800, color: "#1a1b2e", lineHeight: 1.05, letterSpacing: "-0.04em", marginBottom: 20 }}>
-              Engineering Systems<br />That Defy Limits.
+            <h1 className="text-glow" style={{ fontSize: "clamp(26px, 8vw, 52px)", fontWeight: 800, color: "#1a1b2e", lineHeight: 1.1, letterSpacing: "-0.04em", marginBottom: 20 }}>
+              Building the Next Era of AI Apps.
             </h1>
-            <p style={{ fontSize: 13, fontWeight: 700, color: "#7c3aed", marginBottom: 16, letterSpacing: "0.08em", textTransform: "uppercase" }}>
-              Tyson — GenAI Builder
-            </p>
-            <p style={{ fontSize: 16, color: "#4b5563", lineHeight: 1.7, marginBottom: 16, maxWidth: 580, fontWeight: 500 }}>
-              Building GenAI applications that transcend traditional development boundaries and elevate user experiences.
+            <p style={{ fontSize: "clamp(14px, 2vw, 16px)", color: "#4b5563", lineHeight: 1.7, marginBottom: 16, maxWidth: 580, fontWeight: 500 }}>
+              I'm an AI Systems Architect specializing in building autonomous workflows, custom LLM integrations, and high-performance React interfaces.
             </p>
             <p style={{ fontSize: 14, color: "#71717a", lineHeight: 1.8, marginBottom: 44, maxWidth: 480 }}>
-              Focused on frictionless interfaces, autonomous workflow orchestration, and high-velocity feedback loops.
+              Focused on creating systems that improve user interaction, automate complex business workflows, and deliver meaningful ROI through intelligence.
             </p>
 
-
-          {/* CTA Buttons */}
-          <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 44 }}>
-            <Link href="/projects">
-              <button className="btn-primary btn-gradient" style={{
-                padding: "16px 36px", fontSize: 16, fontWeight: 700, borderRadius: 12, border: "none", cursor: "pointer"
-              }}>
-                View Projects
-              </button>
-            </Link>
-            <Link href="/about">
-              <button className="btn-ghost" style={{
-                padding: "16px 36px", fontSize: 16, borderRadius: 12, cursor: "pointer"
-              }}>
-                Full Profile
-              </button>
-            </Link>
-            <Link href="/contact">
-              <button className="btn-ghost" style={{
-                padding: "16px 36px", fontSize: 16, borderRadius: 12, cursor: "pointer"
-              }}>
-                Get In Touch
-              </button>
-            </Link>
-          </div>
-
-          {/* Social Links row with icons */}
-          <div style={{ display: "flex", gap: 20, alignItems: "center" }}>
-            {socialLinks.map(({ label, href, Icon }) => (
-              <a key={label} href={href} target="_blank" rel="noopener"
-                className="social-pill"
-                aria-label={label}
-              >
-                <Icon size={17} />
-                <span className="hide-mobile">{label}</span>
+            <div className="btn-stack hero-buttons" style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 44 }}>
+              <a href="/contact">
+                <button className="btn-primary btn-gradient" style={{
+                  padding: "16px 36px", fontSize: 16, fontWeight: 700, borderRadius: 12, border: "none", cursor: "pointer"
+                }}>
+                  Start a Project
+                </button>
               </a>
-            ))}
+              <Link href="/projects">
+                <button className="btn-ghost" style={{
+                  padding: "16px 36px", fontSize: 16, borderRadius: 12, cursor: "pointer"
+                }}>
+                  View Portfolio
+                </button>
+              </Link>
+            </div>
+            
+            <div className="hero-buttons" style={{ display: "flex", gap: 20, alignItems: "center" }}>
+              {socialLinks.map(({ label, href, Icon }) => (
+                <a key={label} href={href} target="_blank" rel="noopener" className="social-pill" aria-label={label}>
+                  <Icon size={17} />
+                  <span className="hide-mobile">{label}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+          
+          {/* Mascot Hero Animation */}
+          <div style={{ flex: "1 1 300px", display: "flex", justifyContent: "center", alignItems: "center", position: "relative", width: "100%" }}>
+            <HeroMascot 
+              imageSrc="/business_hero_sketch.png" 
+              message="Let's Build! 🚀" 
+              accentColor="#7c3aed" 
+            />
           </div>
         </div>
-
-        {/* Mascot Hero Animation (Business Theme - User Sketch) */}
-        <div style={{ flex: "1 1 300px", display: "flex", justifyContent: "center", alignItems: "center", position: "relative" }}>
-          <HeroMascot 
-            imageSrc="/business_hero_sketch.png" 
-            message="Let's Build! 🚀" 
-            accentColor="#7c3aed" 
-          />
-        </div>
-      </div>
-    </section>
+      </section>
 
       <div style={{ height: 1, backgroundColor: "rgba(124, 58, 237, 0.08)", marginBottom: 72 }} />
 
@@ -552,7 +536,7 @@ function FreelanceHome() {
             return (
               <Link key={project.slug} href={`/projects/${project.slug}`} className={`block no-underline ${bentoClass}`}>
                 <HolographicWrapper accentColor="#7c3aed">
-                  <div className="card-hover" style={{
+                  <div className="card-hover card-p-mobile" style={{
                     border: "1px solid rgba(0,0,0,0.08)",
                     borderRadius: 11, padding: "26px", height: "100%", display: "flex", flexDirection: "column"
                   }}>

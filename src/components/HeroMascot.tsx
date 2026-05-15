@@ -44,7 +44,7 @@ export default function HeroMascot({ imageSrc, message, accentColor }: HeroMasco
   }, [mouseX, mouseY]);
 
   return (
-    <div style={{ position: "relative", width: "100%", maxWidth: 500, height: 500, display: "flex", justifyContent: "center", alignItems: "center", perspective: "1000px" }}>
+    <div style={{ position: "relative", width: "100%", maxWidth: 500, height: "clamp(300px, 85vw, 500px)", display: "flex", justifyContent: "center", alignItems: "center", perspective: "1000px" }}>
       
       {/* ── BACKGROUND DECORATIONS ── */}
       
@@ -117,8 +117,8 @@ export default function HeroMascot({ imageSrc, message, accentColor }: HeroMasco
       
       <motion.div
         style={{
-          width: "380px",
-          height: "380px",
+          width: "clamp(240px, 70vw, 380px)",
+          height: "clamp(240px, 70vw, 380px)",
           zIndex: 2,
           x: mascotX,
           y: mascotY,
@@ -176,16 +176,16 @@ export default function HeroMascot({ imageSrc, message, accentColor }: HeroMasco
         transition={{ delay: 1.2, duration: 0.5, type: "spring", stiffness: 260, damping: 20 }}
         style={{
           position: "absolute",
-          top: "10%",
-          right: "-10%",
+          top: "5%",
+          right: "0%",
           backgroundColor: "rgba(255, 255, 255, 0.9)",
-          padding: "8px 16px",
+          padding: "5px 12px",
           borderRadius: "18px",
-          border: `2px solid ${accentColor}`,
+          border: `1.5px solid ${accentColor}`,
           boxShadow: `0 10px 25px ${accentColor}33`,
           zIndex: 10,
           fontWeight: 800,
-          fontSize: "16px",
+          fontSize: "clamp(10px, 2.5vw, 12px)",
           color: "#1a1b2e",
           display: "flex",
           alignItems: "center",
@@ -193,7 +193,7 @@ export default function HeroMascot({ imageSrc, message, accentColor }: HeroMasco
           backdropFilter: "blur(10px)",
           x: bubbleX,
           y: bubbleY,
-          maxWidth: "240px",
+          maxWidth: "140px",
         }}
       >
         {message}

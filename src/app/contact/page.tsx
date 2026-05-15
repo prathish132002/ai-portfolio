@@ -42,7 +42,7 @@ export default function ContactPage() {
 
   return (
     <div className="page-container" style={{ animation: "fadeIn 0.5s ease" }}>
-      <section style={{ padding: "56px 0 96px" }}>
+      <section className="p-mobile" style={{ padding: "56px 0 96px" }}>
 
         {/* Back */}
         <Link href="/" className="back-btn" style={{ fontSize: 13, color: "#1a1b2e", marginBottom: 32, fontWeight: 700 }}>
@@ -52,10 +52,10 @@ export default function ContactPage() {
 
         <div style={{ marginBottom: 44 }}>
           <p style={{ fontSize: 13, fontWeight: 700, color: accentColor, marginBottom: 12, letterSpacing: "0.08em", textTransform: "uppercase" }}>Contact</p>
-          <h1 style={{ fontSize: "clamp(28px, 5vw, 42px)", fontWeight: 800, color: "#1a1b2e", letterSpacing: "-0.05em", marginBottom: 16 }}>
+          <h1 style={{ fontSize: "clamp(26px, 5vw, 42px)", fontWeight: 800, color: "#1a1b2e", letterSpacing: "-0.05em", marginBottom: 16, lineHeight: 1.1 }}>
             Let's build something useful.
           </h1>
-          <p style={{ fontSize: 16, color: "#4b5563", lineHeight: 1.8, maxWidth: 520, fontWeight: 500 }}>
+          <p style={{ fontSize: "clamp(15px, 2vw, 17px)", color: "#4b5563", lineHeight: 1.8, maxWidth: 520, fontWeight: 500 }}>
             If you're working on AI-driven products or need help integrating intelligent systems into your application, feel free to reach out.
           </p>
         </div>
@@ -72,14 +72,14 @@ export default function ContactPage() {
                 padding: "20px 0", borderBottom: "1px solid rgba(0,0,0,0.06)",
                 textDecoration: "none", gap: 12,
               }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 16, overflow: "hidden" }}>
                 <span style={{ color: accentColor, display: "flex", flexShrink: 0 }}>
-                  <Icon size={19} />
+                  <Icon size={18} />
                 </span>
-                <span style={{ fontSize: 14, color: "#1a1b2e", fontWeight: 700, minWidth: 80 }}>{label}</span>
-                <span style={{ fontSize: 15, color: "#4b5563", fontWeight: 500 }}>{value}</span>
+                <span className="hide-mobile" style={{ fontSize: 13, color: "#1a1b2e", fontWeight: 700, minWidth: 80 }}>{label}</span>
+                <span style={{ fontSize: "clamp(13px, 3.5vw, 15px)", color: "#4b5563", fontWeight: 600, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{value}</span>
               </div>
-              <span style={{ fontSize: 18, color: accentColor, opacity: 0.6 }}>↗</span>
+              <span style={{ fontSize: 16, color: accentColor, opacity: 0.6, flexShrink: 0 }}>↗</span>
             </a>
           ))}
         </div>
@@ -88,20 +88,20 @@ export default function ContactPage() {
         {status === "sent" ? (
           <div style={{
             padding: "24px 28px", backgroundColor: softBg,
-            border: `1px solid ${accentColor}26`, borderRadius: 10, maxWidth: 520,
+            border: `1px solid ${accentColor}26`, borderRadius: 12, maxWidth: 520,
           }}>
-            <p style={{ fontSize: 16, color: accentColor, marginBottom: 6, fontWeight: 700 }}>Message sent.</p>
-            <p style={{ fontSize: 15, color: "#4b5563", fontWeight: 500 }}>I'll get back to you within 24–48 hours.</p>
+            <p style={{ fontSize: 16, color: accentColor, marginBottom: 6, fontWeight: 800 }}>Message sent.</p>
+            <p style={{ fontSize: 15, color: "#4b5563", fontWeight: 600 }}>I'll get back to you within 24–48 hours.</p>
           </div>
         ) : (
           <div style={{ maxWidth: 520 }}>
-            <p style={{ fontSize: 12, color: "#52525b", marginBottom: 20, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.07em" }}>
+            <p style={{ fontSize: 11, color: "#52525b", marginBottom: 20, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>
               Or send a message
             </p>
-            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                <div style={{ flex: "1 1 200px" }}>
-                  <label style={{ fontSize: 12, fontWeight: 700, color: accentColor, display: "block", marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.05em" }}>Name</label>
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              <div className="btn-stack stack-mobile" style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "flex-start" }}>
+                <div className="full-mobile" style={{ width: "100%" }}>
+                  <label style={{ fontSize: 11, fontWeight: 800, color: accentColor, display: "block", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Name</label>
                   <input type="text" required placeholder="Your name" style={inputStyle}
                     onFocus={(e) => {
                       e.currentTarget.style.borderColor = accentColor;
@@ -114,8 +114,8 @@ export default function ContactPage() {
                       e.currentTarget.style.boxShadow = "none";
                     }} />
                 </div>
-                <div style={{ flex: "1 1 200px" }}>
-                  <label style={{ fontSize: 12, fontWeight: 700, color: accentColor, display: "block", marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.05em" }}>Email</label>
+                <div className="full-mobile" style={{ width: "100%" }}>
+                  <label style={{ fontSize: 11, fontWeight: 800, color: accentColor, display: "block", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Email</label>
                   <input type="email" required placeholder="your@email.com" style={inputStyle}
                     onFocus={(e) => {
                       e.currentTarget.style.borderColor = accentColor;
@@ -130,7 +130,7 @@ export default function ContactPage() {
                 </div>
               </div>
               <div>
-                <label style={{ fontSize: 12, fontWeight: 700, color: accentColor, display: "block", marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.05em" }}>Message</label>
+                <label style={{ fontSize: 11, fontWeight: 800, color: accentColor, display: "block", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.06em" }}>Message</label>
                 <textarea required rows={5} placeholder="What are you building?"
                   style={{ ...inputStyle, resize: "vertical" }}
                   onFocus={(e) => {
@@ -145,7 +145,7 @@ export default function ContactPage() {
                   }} />
               </div>
               <div>
-                <button type="submit" disabled={status === "sending"} className={`btn-primary ${mode === "student" ? "" : "btn-gradient"}`} style={{
+                <button type="submit" disabled={status === "sending"} className={`btn-primary btn-p-mobile ${mode === "student" ? "" : "btn-gradient"} full-mobile`} style={{
                   padding: "16px 36px", border: "none", borderRadius: 12, fontSize: 16, fontWeight: 700,
                   cursor: status === "sending" ? "not-allowed" : "pointer", fontFamily: "inherit",
                   background: mode === "student" ? "linear-gradient(135deg, #10b981 0%, #059669 100%)" : undefined,
@@ -159,7 +159,7 @@ export default function ContactPage() {
         )}
 
         {/* Bottom back */}
-        <div style={{ marginTop: 120, paddingTop: 48, borderTop: "1px solid rgba(0,0,0,0.08)" }}>
+        <div style={{ marginTop: 100, paddingTop: 48, borderTop: "1px solid rgba(0,0,0,0.08)" }}>
           <Link href="/" className="back-btn" style={{ fontSize: 13, color: "#1a1b2e", fontWeight: 700 }}>
             <ArrowLeftIcon size={16} />
             Back to Home

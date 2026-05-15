@@ -179,12 +179,12 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
 
   return (
     <div className="page-container" style={{ animation: "fadeIn 0.5s ease" }}>
-      <section style={{ padding: "56px 0 96px" }}>
+      <section className="p-mobile" style={{ padding: "56px 0 96px" }}>
 
         {/* Back button */}
         <Link href="/" className="back-btn" style={{ marginBottom: 44, fontWeight: 700, fontSize: 13 }}>
           <ArrowLeftIcon size={16} />
-          Back to Home
+          Home
         </Link>
 
         {/* Header */}
@@ -192,35 +192,36 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
           <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14, flexWrap: "wrap" }}>
             {project.liveUrl ? (
               <a href={project.liveUrl} target="_blank" rel="noopener" style={{
-                fontSize: 11, fontWeight: 600, color: "#4ade80",
-                backgroundColor: "rgba(74,222,128,0.08)", padding: "3px 10px",
+                fontSize: 10, fontWeight: 700, color: "#4ade80",
+                backgroundColor: "rgba(74,222,128,0.08)", padding: "3px 8px",
                 borderRadius: 4, border: "1px solid rgba(74,222,128,0.2)",
-                display: "flex", alignItems: "center", gap: 4,
+                display: "flex", alignItems: "center", gap: 4, textTransform: "uppercase"
               }}>
-                Live <ExternalLinkIcon size={11} />
+                Live <ExternalLinkIcon size={10} />
               </a>
             ) : (
               <span style={{
-                fontSize: 11, fontWeight: 600, color: "#06b6d4",
-                backgroundColor: "rgba(6,182,212,0.08)", padding: "3px 10px",
+                fontSize: 10, fontWeight: 700, color: "#06b6d4",
+                backgroundColor: "rgba(6,182,212,0.08)", padding: "3px 8px",
                 borderRadius: 4, border: "1px solid rgba(6,182,212,0.18)",
+                textTransform: "uppercase"
               }}>Built</span>
             )}
-            <span style={{ fontSize: 13, color: accentColor, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em" }}>{project.category}</span>
+            <span style={{ fontSize: 11, color: accentColor, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.05em" }}>{project.category}</span>
           </div>
-          <h1 style={{ fontSize: "clamp(28px, 5vw, 42px)", fontWeight: 800, color: "#1a1b2e", letterSpacing: "-0.05em", marginBottom: 12, lineHeight: 1.1 }}>
+          <h1 style={{ fontSize: "clamp(26px, 6vw, 42px)", fontWeight: 800, color: "#1a1b2e", letterSpacing: "-0.05em", marginBottom: 12, lineHeight: 1.1 }}>
             {project.title}
           </h1>
           <p style={{ fontSize: 13, fontWeight: 700, color: accentColor, marginBottom: 20, textTransform: "uppercase", letterSpacing: "0.08em" }}>{project.subtitle}</p>
-          <p style={{ fontSize: 16, color: "#4b5563", lineHeight: 1.8, maxWidth: 660, marginBottom: 24, fontWeight: 500 }}>{project.overview}</p>
+          <p style={{ fontSize: "clamp(15px, 2vw, 17px)", color: "#4b5563", lineHeight: 1.8, maxWidth: 660, marginBottom: 24, fontWeight: 500 }}>{project.overview}</p>
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
             {project.tags.map((tag: string) => (
               <span key={tag} style={{
-                fontSize: 12, color: "#1a1b2e",
+                fontSize: 10, color: "#1a1b2e",
                 backgroundColor: "rgba(255,255,255,0.6)",
                 border: "1px solid rgba(0,0,0,0.08)",
                 padding: "4px 12px", borderRadius: 100,
-                fontWeight: 600
+                fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.02em"
               }}>{tag}</span>
             ))}
           </div>
@@ -229,7 +230,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
         {/* Mission Objective */}
         <div style={{ marginBottom: 48 }}>
           <h2 style={{ fontSize: 11, fontWeight: 700, color: accentColor, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>Mission Objective</h2>
-          <p style={{ fontSize: 16, color: "#4b5563", lineHeight: 1.8, fontWeight: 500 }}>{project.missionObjective}</p>
+          <p style={{ fontSize: "clamp(15px, 2vw, 16px)", color: "#4b5563", lineHeight: 1.8, fontWeight: 500 }}>{project.missionObjective}</p>
         </div>
 
         {/* Deep Dive Architecture (if exists) */}
@@ -237,13 +238,13 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
           <div style={{ marginBottom: 52 }}>
             <h2 style={{ fontSize: 11, fontWeight: 700, color: accentColor, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>System Architecture</h2>
             <div style={{
-              padding: "24px 28px",
+              padding: "20px 24px",
               backgroundColor: "rgba(255, 255, 255, 0.5)",
               border: "1px solid rgba(0,0,0,0.08)",
               borderRadius: "12px",
               boxShadow: "0 4px 20px rgba(0,0,0,0.02)"
             }}>
-              <p style={{ fontSize: 15, color: "#1a1b2e", lineHeight: 1.8, fontFamily: "monospace", fontWeight: 500 }}>{project.systemArchitecture}</p>
+              <p style={{ fontSize: 14, color: "#1a1b2e", lineHeight: 1.8, fontFamily: "monospace", fontWeight: 600 }}>{project.systemArchitecture}</p>
             </div>
           </div>
         )}
@@ -253,11 +254,11 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
         {/* Mission Specs / Features */}
         <div style={{ marginBottom: 48 }}>
           <h2 style={{ fontSize: 11, fontWeight: 700, color: accentColor, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 20 }}>System Capabilities</h2>
-          <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: 12 }}>
+          <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: 16 }}>
             {project.features.map((f: string) => (
               <li key={f} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
                 <span style={{ color: accentColor, flexShrink: 0, fontSize: 16, lineHeight: "24px", fontWeight: 800 }}>—</span>
-                <span style={{ fontSize: 16, color: "#4b5563", lineHeight: 1.6, fontWeight: 500 }}>{f}</span>
+                <span style={{ fontSize: 15, color: "#4b5563", lineHeight: 1.6, fontWeight: 600 }}>{f}</span>
               </li>
             ))}
           </ul>
@@ -271,12 +272,12 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             {project.technicalPropulsion.map((t: any) => (
               <div key={t.name} style={{
-                display: "flex", gap: 20, alignItems: "flex-start",
-                padding: "18px 22px", backgroundColor: "rgba(255, 255, 255, 0.4)",
+                display: "flex", gap: 12, alignItems: "flex-start",
+                padding: "16px 20px", backgroundColor: "rgba(255, 255, 255, 0.4)",
                 border: "1px solid rgba(0,0,0,0.08)", borderRadius: 10, flexWrap: "wrap",
               }}>
-                <span style={{ fontSize: 14, fontWeight: 800, color: "#1a1b2e", minWidth: 140, flexShrink: 0 }}>{t.name}</span>
-                <span style={{ fontSize: 14, color: "#4b5563", lineHeight: 1.6, fontWeight: 500 }}>{t.reason}</span>
+                <span style={{ fontSize: 13, fontWeight: 800, color: "#1a1b2e", minWidth: 140, flexShrink: 0 }} className="full-mobile">{t.name}</span>
+                <span style={{ fontSize: 13, color: "#4b5563", lineHeight: 1.6, fontWeight: 600 }}>{t.reason}</span>
               </div>
             ))}
           </div>
@@ -288,21 +289,21 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
         <div style={{ marginBottom: 52 }}>
           <h2 style={{ fontSize: 11, fontWeight: 700, color: accentColor, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 20 }}>Atmospheric Impact</h2>
           <div style={{
-            padding: "24px 28px",
+            padding: "20px 24px",
             backgroundColor: softBg,
             borderLeft: `4px solid ${accentColor}`,
             borderRadius: "0 12px 12px 0",
           }}>
-            <p style={{ fontSize: 16, color: "#1a1b2e", lineHeight: 1.8, fontWeight: 600 }}>{project.atmosphericImpact}</p>
+            <p style={{ fontSize: 15, color: "#1a1b2e", lineHeight: 1.8, fontWeight: 700 }}>{project.atmosphericImpact}</p>
           </div>
         </div>
 
         {/* Live CTA */}
         {project.liveUrl && (
-          <a href={project.liveUrl} target="_blank" rel="noopener" style={{ textDecoration: "none" }}>
-            <button className={`btn-primary ${mode === "student" ? "" : "btn-gradient"}`} style={{
+          <a href={project.liveUrl} target="_blank" rel="noopener" style={{ textDecoration: "none" }} className="full-mobile">
+            <button className={`btn-primary ${mode === "student" ? "" : "btn-gradient"} full-mobile`} style={{
               padding: "16px 36px", border: "none", borderRadius: 12, fontSize: 16, fontWeight: 700, cursor: "pointer",
-              display: "inline-flex", alignItems: "center", gap: 10,
+              display: "inline-flex", alignItems: "center", gap: 10, justifyContent: "center",
               background: mode === "student" ? "linear-gradient(135deg, #10b981 0%, #059669 100%)" : undefined,
               color: "white"
             }}>

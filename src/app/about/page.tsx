@@ -37,29 +37,24 @@ export default function AboutPage() {
         {/* Header */}
         <div style={{ marginBottom: 52 }}>
           <p style={{ fontSize: 13, fontWeight: 700, color: accentColor, marginBottom: 12, letterSpacing: "0.08em", textTransform: "uppercase" }}>About</p>
-          <h1 style={{ fontSize: "clamp(34px, 6vw, 48px)", fontWeight: 800, color: "#1a1b2e", letterSpacing: "-0.06em", marginBottom: 32 }}>Tyson</h1>
+          <h1 style={{ fontSize: "clamp(28px, 6vw, 42px)", fontWeight: 800, color: "#1a1b2e", letterSpacing: "-0.06em", marginBottom: 32 }}>Tyson</h1>
           <div style={{ display: "flex", flexDirection: "column", gap: 20, maxWidth: 880 }}>
-            <p style={{ fontSize: 20, color: "#4b5563", lineHeight: 1.7, fontWeight: 500 }}>
+            <p style={{ fontSize: "clamp(14px, 3vw, 18px)", color: "#4b5563", lineHeight: 1.7, fontWeight: 500 }}>
               I am a GenAI-focused developer with a strong interest in building practical AI-driven applications. My work focuses on integrating AI into real-world use cases such as interview preparation, resume generation, marketing automation, and user experience enhancement.
             </p>
-            <p style={{ fontSize: 20, color: "#4b5563", lineHeight: 1.7, fontWeight: 500 }}>
+            <p style={{ fontSize: "clamp(14px, 3vw, 18px)", color: "#4b5563", lineHeight: 1.7, fontWeight: 500 }}>
               Instead of just experimenting with AI models, I focus on building complete systems — from frontend interfaces to backend logic — that deliver clear value to users.
-            </p>
-            <p style={{ fontSize: 20, color: "#4b5563", lineHeight: 1.7, fontWeight: 500 }}>
-              I have experience working with React, TypeScript, and AI APIs to create applications that are interactive, efficient, and user-focused.
-            </p>
-            <p style={{ fontSize: 20, color: "#4b5563", lineHeight: 1.7, fontWeight: 500 }}>
-              Currently, I am focused on improving how AI can assist users in decision-making, communication, and productivity.
             </p>
           </div>
 
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginTop: 40 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 40 }}>
             {socialLinks.map(({ label, href, Icon }) => (
               <a key={label} href={href} target="_blank" rel="noopener"
                 className="social-pill"
+                style={{ padding: "10px 16px", fontSize: 13 }}
               >
-                <Icon size={18} />
-                <span>{label}</span>
+                <Icon size={16} />
+                <span className="text-sm-mobile">{label}</span>
               </a>
             ))}
           </div>
@@ -70,23 +65,23 @@ export default function AboutPage() {
         {/* Capabilities */}
         <div style={{ marginBottom: 48 }}>
           <h2 style={{ fontSize: 11, fontWeight: 700, color: accentColor, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 28 }}>Capabilities</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20 }}>
+          <div className="bento-grid">
             {skillGroups.map((group) => (
               <div key={group.category} style={{
                 backgroundColor: "rgba(255, 255, 255, 0.4)", border: "1px solid rgba(0,0,0,0.08)",
-                borderRadius: 12, padding: "26px",
+                borderRadius: 12, padding: "24px",
               }} className="card-hover">
               <div style={{ 
-                fontSize: 13, fontWeight: 800, color: accentColor, fontFamily: "monospace", 
+                fontSize: 12, fontWeight: 800, color: accentColor, fontFamily: "monospace", 
                 letterSpacing: "0.06em", marginBottom: 20, display: "inline-flex", alignItems: "center",
-                padding: "6px 12px", backgroundColor: softBg, borderRadius: 8,
+                padding: "6px 10px", backgroundColor: softBg, borderRadius: 8,
                 border: `1px solid ${softBorder}`, textTransform: "uppercase"
               }}>
                 {group.category}
               </div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                   {group.items.map((item) => (
-                    <span key={item} style={{ fontSize: 18, color: "#4b5563", fontWeight: 600, display: "flex", alignItems: "center", gap: 10 }}>
+                    <span key={item} style={{ fontSize: 16, color: "#4b5563", fontWeight: 600, display: "flex", alignItems: "center", gap: 10 }}>
                       <span style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: accentColor, opacity: 0.4 }} />
                       {item}
                     </span>
@@ -100,22 +95,22 @@ export default function AboutPage() {
         <div style={{ height: 1, backgroundColor: "rgba(0,0,0,0.08)", marginBottom: 48 }} />
 
         {/* Education */}
-        <div style={{ marginBottom: 48 }}>
-          <h2 style={{ fontSize: 11, fontWeight: 700, color: accentColor, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 28 }}>Education</h2>
+        <div style={{ marginBottom: 32 }}>
+          <h2 style={{ fontSize: 11, fontWeight: 700, color: accentColor, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>Education</h2>
           <div style={{
-            padding: "20px 24px", backgroundColor: "rgba(255, 255, 255, 0.4)",
+            padding: "16px 20px", backgroundColor: "rgba(255, 255, 255, 0.4)",
             border: "1px solid rgba(0,0,0,0.08)", borderRadius: 10,
           }}>
-            <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
-              <div>
-                <div style={{ fontSize: 15, fontWeight: 600, color: "#1a1b2e", marginBottom: 4, letterSpacing: "-0.01em" }}>
+            <div className="stack-mobile" style={{ display: "flex", justifyContent: "flex-start", flexWrap: "wrap", gap: 12 }}>
+              <div style={{ width: "100%" }}>
+                <div style={{ fontSize: 15, fontWeight: 700, color: "#1a1b2e", marginBottom: 2, letterSpacing: "-0.01em" }}>
                   B.Tech — Electronics & Communication Engineering
                 </div>
                 <div style={{ fontSize: 13, color: "#4b5563" }}>Jayaprakash Narayan College of Engineering</div>
               </div>
-              <div style={{ textAlign: "right" }}>
-                <div style={{ fontSize: 12, color: "#71717a", marginBottom: 4 }}>2021 – 2025</div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: accentColor }}>CGPA: 7.20</div>
+              <div className="full-mobile" style={{ width: "100%", textAlign: "left" }}>
+                <div style={{ fontSize: 12, color: "#71717a", marginBottom: 2 }}>2021 – 2025</div>
+                <div style={{ fontSize: 13, fontWeight: 700, color: accentColor }}>CGPA: 7.20</div>
               </div>
             </div>
           </div>
@@ -124,8 +119,8 @@ export default function AboutPage() {
         <div style={{ height: 1, backgroundColor: "rgba(0,0,0,0.08)", marginBottom: 48 }} />
 
         {/* Certifications */}
-        <div style={{ marginBottom: 40 }}>
-          <h2 style={{ fontSize: 11, fontWeight: 700, color: accentColor, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 28 }}>Certifications</h2>
+        <div style={{ marginBottom: 32 }}>
+          <h2 style={{ fontSize: 11, fontWeight: 700, color: accentColor, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>Certifications</h2>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {[
               { name: "Python, SQL, JavaScript, React.js, Node.js", issuer: "NXT Wave", year: null },
@@ -133,14 +128,14 @@ export default function AboutPage() {
             ].map((cert, i) => (
               <div key={i} style={{
                 display: "flex", justifyContent: "space-between", alignItems: "center",
-                padding: "14px 18px", backgroundColor: "rgba(255, 255, 255, 0.4)",
-                border: "1px solid rgba(0,0,0,0.06)", borderRadius: 8, flexWrap: "wrap", gap: 8,
+                padding: "12px 18px", backgroundColor: "rgba(255, 255, 255, 0.4)",
+                border: "1px solid rgba(0,0,0,0.06)", borderRadius: 10, flexWrap: "wrap", gap: 8,
               }}>
-                <div>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: "#1a1b2e", marginBottom: 2 }}>{cert.name}</div>
+                <div style={{ flex: "1 1 200px" }}>
+                  <div style={{ fontSize: 14, fontWeight: 700, color: "#1a1b2e", marginBottom: 2 }}>{cert.name}</div>
                   <div style={{ fontSize: 12, color: "#71717a" }}>{cert.issuer}</div>
                 </div>
-                {cert.year && <span style={{ fontSize: 12, color: accentColor, fontWeight: 700 }}>{cert.year}</span>}
+                {cert.year && <span style={{ fontSize: 12, color: accentColor, fontWeight: 800 }}>{cert.year}</span>}
               </div>
             ))}
           </div>
@@ -150,20 +145,19 @@ export default function AboutPage() {
 
         {/* Cricket / Beyond Code */}
         <div style={{ marginBottom: 48 }}>
-          <h2 style={{ fontSize: 11, fontWeight: 600, color: "#06b6d4", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 24 }}>
+          <h2 style={{ fontSize: 11, fontWeight: 700, color: "#06b6d4", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 24 }}>
             Beyond Code
           </h2>
 
-          <div style={{
+          <div className="card-p-mobile" style={{
             backgroundColor: "#111113",
             border: "1px solid rgba(255,255,255,0.07)",
-            borderRadius: 10,
+            borderRadius: 12,
             padding: "24px",
           }}>
-            {/* Header row */}
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 12, marginBottom: 16 }}>
+            <div className="stack-mobile" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 12, marginBottom: 16 }}>
               <div>
-                <div style={{ fontSize: 15, fontWeight: 600, color: "#f5f5f7", marginBottom: 4, letterSpacing: "-0.01em" }}>
+                <div style={{ fontSize: 16, fontWeight: 700, color: "#f5f5f7", marginBottom: 4, letterSpacing: "-0.01em" }}>
                   🏏 Cricket — All-rounder
                 </div>
                 <div style={{ fontSize: 13, color: "#71717a" }}>
@@ -176,50 +170,48 @@ export default function AboutPage() {
                 rel="noopener"
                 className="btn-ghost"
                 style={{
-                  padding: "6px 14px",
+                  padding: "8px 16px",
                   backgroundColor: "transparent",
                   color: "#a1a1aa",
                   border: "1px solid rgba(255,255,255,0.1)",
-                  borderRadius: 7,
+                  borderRadius: 8,
                   fontSize: 12,
-                  fontWeight: 500,
+                  fontWeight: 600,
                   cursor: "pointer",
                   display: "inline-flex",
                   alignItems: "center",
-                  gap: 6,
-                  whiteSpace: "nowrap",
+                  gap: 8,
                 }}
               >
                 View Profile ↗
               </a>
             </div>
 
-            {/* Stat chips */}
-            <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 16 }}>
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 24, justifyContent: "center" }}>
               {[
                 { label: "Matches", value: "120+" },
                 { label: "Runs", value: "1000+" },
                 { label: "Wickets", value: "50+" },
               ].map((stat) => (
                 <div key={stat.label} style={{
-                  padding: "8px 16px",
+                  padding: "10px 16px",
                   backgroundColor: "rgba(6,182,212,0.06)",
                   border: "1px solid rgba(6,182,212,0.15)",
-                  borderRadius: 7,
+                  borderRadius: 10,
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
                   gap: 2,
-                  minWidth: 80,
+                  flex: "1 1 80px",
+                  maxWidth: "120px",
                 }}>
-                  <span style={{ fontSize: 17, fontWeight: 700, color: "#f5f5f7", letterSpacing: "-0.02em" }}>{stat.value}</span>
-                  <span style={{ fontSize: 10, color: "#71717a", textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 500 }}>{stat.label}</span>
+                  <span style={{ fontSize: 18, fontWeight: 800, color: "#f5f5f7" }}>{stat.value}</span>
+                  <span style={{ fontSize: 9, color: "#71717a", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 600 }}>{stat.label}</span>
                 </div>
               ))}
             </div>
 
-            {/* Description */}
-            <p style={{ fontSize: 14, color: "#71717a", lineHeight: 1.75 }}>
+            <p style={{ fontSize: 14, color: "#a1a1aa", lineHeight: 1.8, textAlign: "center" }}>
               Built consistency, adaptability, and decision-making under pressure through competitive cricket — skills that translate directly into how I approach engineering problems.
             </p>
           </div>
@@ -227,7 +219,7 @@ export default function AboutPage() {
 
         {/* Bottom back */}
         <div style={{ paddingTop: 32, borderTop: "1px solid rgba(0,0,0,0.08)" }}>
-          <Link href="/" className="back-btn nav-link" style={{ fontSize: 13, color: "#52525b", display: "inline-flex", fontWeight: 500 }}>
+          <Link href="/" className="back-btn nav-link" style={{ fontSize: 13, color: "#52525b", display: "inline-flex", fontWeight: 600 }}>
             <ArrowLeftIcon size={15} />
             Back to Home
           </Link>

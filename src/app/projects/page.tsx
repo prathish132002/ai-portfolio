@@ -71,7 +71,7 @@ export default function ProjectsPage() {
         <div style={{ marginBottom: 52 }}>
           <p style={{ fontSize: 13, fontWeight: 700, color: accentColor, marginBottom: 12, letterSpacing: "0.08em", textTransform: "uppercase" }}>Portfolio</p>
           <h1 style={{ fontSize: "clamp(34px, 6vw, 48px)", fontWeight: 800, color: "#1a1b2e", letterSpacing: "-0.06em", marginBottom: 16 }}>Projects</h1>
-          <p style={{ fontSize: 20, color: "#4b5563", maxWidth: 720, fontWeight: 500, lineHeight: 1.7 }}>
+          <p style={{ fontSize: "clamp(16px, 3vw, 20px)", color: "#4b5563", maxWidth: 720, fontWeight: 500, lineHeight: 1.7 }}>
             AI systems, IoT devices, and full-stack applications built for real-world impact.
           </p>
         </div>
@@ -85,33 +85,35 @@ export default function ProjectsPage() {
                 <HolographicWrapper accentColor={accentColor}>
                   <div className="card-hover" style={{
                     border: "1px solid rgba(0,0,0,0.08)",
-                    borderRadius: 11, padding: "26px", height: "100%", display: "flex", flexDirection: "column",
+                    borderRadius: 12, padding: "24px", height: "100%", display: "flex", flexDirection: "column",
                     backgroundColor: "white"
                   }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 6 }}>
-                      <h3 style={{ fontSize: 26, fontWeight: 700, color: "#1a1b2e", letterSpacing: "-0.02em" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 6, gap: 12 }}>
+                      <h3 style={{ fontSize: "clamp(20px, 4vw, 26px)", fontWeight: 700, color: "#1a1b2e", letterSpacing: "-0.02em" }}>
                         {project.title}
                       </h3>
-                      {project.liveUrl ? (
-                        <span style={{
-                          fontSize: 10, fontWeight: 600, color: "#4ade80",
-                          backgroundColor: "rgba(74,222,128,0.08)", padding: "2px 8px",
-                          borderRadius: 4, border: "1px solid rgba(74,222,128,0.2)",
-                          flexShrink: 0, marginLeft: 10,
-                        }}>Live</span>
-                      ) : (
-                        <span style={{
-                          fontSize: 10, fontWeight: 600, color: "#06b6d4",
-                          backgroundColor: "rgba(6,182,212,0.08)", padding: "2px 8px",
-                          borderRadius: 4, border: "1px solid rgba(6,182,212,0.18)",
-                          flexShrink: 0, marginLeft: 10,
-                        }}>Built</span>
-                      )}
+                      <div style={{ display: "flex", gap: 6, flexShrink: 0 }}>
+                        {project.liveUrl ? (
+                          <span style={{
+                            fontSize: 9, fontWeight: 700, color: "#4ade80",
+                            backgroundColor: "rgba(74,222,128,0.08)", padding: "2px 6px",
+                            borderRadius: 4, border: "1px solid rgba(74,222,128,0.2)",
+                            textTransform: "uppercase"
+                          }}>Live</span>
+                        ) : (
+                          <span style={{
+                            fontSize: 9, fontWeight: 700, color: "#06b6d4",
+                            backgroundColor: "rgba(6,182,212,0.08)", padding: "2px 6px",
+                            borderRadius: 4, border: "1px solid rgba(6,182,212,0.18)",
+                            textTransform: "uppercase"
+                          }}>Built</span>
+                        )}
+                      </div>
                     </div>
-                    <p style={{ fontSize: 15, color: accentColor, marginBottom: 16, fontWeight: 700, letterSpacing: "0.03em", textTransform: "uppercase" }}>{project.subtitle}</p>
-                    <p style={{ fontSize: 18, color: "#4b5563", lineHeight: 1.6, marginBottom: project.manifest ? 14 : "auto", flexGrow: 1, fontWeight: 500 }}>{project.description}</p>
+                    <p style={{ fontSize: 13, color: accentColor, marginBottom: 16, fontWeight: 700, letterSpacing: "0.03em", textTransform: "uppercase" }}>{project.subtitle}</p>
+                    <p style={{ fontSize: "clamp(15px, 2vw, 18px)", color: "#4b5563", lineHeight: 1.6, marginBottom: project.manifest ? 14 : "auto", flexGrow: 1, fontWeight: 500 }}>{project.description}</p>
                     {project.manifest && (
-                      <p style={{ fontSize: 13, color: "#16a34a", fontFamily: "monospace", marginBottom: "auto", flexGrow: 1, paddingTop: 4, fontWeight: 600 }}>
+                      <p className="text-sm-mobile" style={{ fontSize: 13, color: "#16a34a", fontFamily: "monospace", marginBottom: "auto", flexGrow: 1, paddingTop: 4, fontWeight: 600 }}>
                         {project.manifest}
                       </p>
                     )}
@@ -119,10 +121,12 @@ export default function ProjectsPage() {
                       {project.tags.map((tag) => (
                         <span key={tag} style={{
                           fontSize: 10, color: accentColor,
-                          backgroundColor: mode === "student" ? "rgba(16, 185, 129, 0.08)" : "rgba(167, 139, 250, 0.08)",
-                          border: `1px solid ${mode === "student" ? "rgba(16, 185, 129, 0.2)" : "rgba(167, 139, 250, 0.2)"}`,
+                          backgroundColor: "var(--accent-soft)",
+                          border: "1px solid var(--accent-border)",
                           padding: "3px 10px", borderRadius: 100,
-                          fontWeight: 600
+                          fontWeight: 700,
+                          textTransform: "uppercase",
+                          letterSpacing: "0.02em"
                         }}>{tag}</span>
                       ))}
                     </div>
@@ -135,7 +139,7 @@ export default function ProjectsPage() {
 
         {/* Bottom back */}
         <div style={{ marginTop: 64, paddingTop: 32, borderTop: "1px solid rgba(0,0,0,0.08)" }}>
-          <Link href="/" className="back-btn nav-link" style={{ fontSize: 13, color: "#52525b", display: "inline-flex", fontWeight: 500 }}>
+          <Link href="/" className="back-btn nav-link" style={{ fontSize: 13, color: "#52525b", display: "inline-flex", fontWeight: 600 }}>
             <ArrowLeftIcon size={15} />
             Back to Home
           </Link>

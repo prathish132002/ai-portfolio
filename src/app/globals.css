@@ -117,7 +117,14 @@ a { color: inherit; text-decoration: none; }
   grid-template-columns: 1fr;
   gap: 16px;
 }
+
 @media (min-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
   .bento-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -207,9 +214,9 @@ a { color: inherit; text-decoration: none; }
 /* Page Container & Spacing */
 .page-container {
   width: 100%;
-  max-width: 94%;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
 }
 
 @media (min-width: 768px) {
@@ -218,19 +225,43 @@ a { color: inherit; text-decoration: none; }
   }
 }
 
-/* Responsive typography */
+/* Responsive typography & Stacking */
 @media (max-width: 768px) {
   .hide-mobile { display: none !important; }
-  .stack-mobile { flex-direction: column !important; }
+  .stack-mobile { flex-direction: column !important; gap: 16px !important; justify-content: flex-start !important; }
+  .reverse-stack-mobile { flex-direction: column-reverse !important; align-items: center !important; text-align: center !important; gap: 16px !important; justify-content: flex-start !important; }
   .full-mobile { width: 100% !important; min-width: 0 !important; }
   .grid-1-mobile { grid-template-columns: 1fr !important; }
-  .p-mobile { padding: 56px 0 64px !important; }
-  .text-sm-mobile { font-size: 13px !important; }
-  .gap-sm-mobile { gap: 12px !important; }
+  .p-mobile { padding: 32px 0 48px !important; }
+  .card-p-mobile { padding: 18px 20px !important; }
+  .btn-p-mobile { padding: 12px 28px !important; }
+  .text-sm-mobile { font-size: 12px !important; }
+  .text-xs-mobile { font-size: 11px !important; }
+  .gap-sm-mobile { gap: 10px !important; }
+  .section-spacing { margin-bottom: 32px !important; }
+  .hero-text { text-align: center; }
+  .hero-buttons { justify-content: center; width: 100%; }
+  
+  /* Global font size reductions for mobile */
+  h1 { font-size: clamp(28px, 7vw, 40px) !important; }
+  h2 { font-size: clamp(22px, 6vw, 32px) !important; }
+  h3 { font-size: clamp(18px, 5vw, 24px) !important; }
+  p { font-size: 14px !important; line-height: 1.6 !important; }
 }
 
 @media (max-width: 480px) {
-  .page-container { padding: 0 20px; }
-  .btn-stack { flex-direction: column; width: 100%; }
-  .btn-stack button, .btn-stack a { width: 100%; text-align: center; }
+  .page-container { padding: 0 16px; }
+  .btn-stack { flex-direction: column; width: 100%; gap: 12px; }
+  .btn-stack button, .btn-stack a { width: 100% !important; text-align: center; }
+}
+
+/* Custom fade animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
